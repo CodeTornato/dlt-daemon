@@ -197,7 +197,7 @@ For example don't write log entries like this:
 
 Better aggregate Information into a single message:
 
-> Frame info: total=1000, sync=0, reem=1000, valid=0, urgent=1
+> Frame info: total=1000, sync=0, reem=0, valid=0, urgent=1
 
 ### Do not use ASCII-art
 
