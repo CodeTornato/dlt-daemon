@@ -8,7 +8,7 @@
 **Code coverage reports online** 📄 [LCOV - code coverage report](https://COVESA.github.io/dlt-daemon/dlt_lcov_report/index.html)
 
 # Diagnostic Log and Trace
-
+ 
 Welcome to GENIVI Diagnostic Log and Trace (DLT). If you are familiar with DLT
 and want to know what's new, check the [Release Notes](ReleaseNotes.md).
 
