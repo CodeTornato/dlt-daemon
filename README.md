@@ -148,7 +148,7 @@ the links to learn more about the respective concept.
 | [DLT KPI](doc/dlt_kpi.md) | Valueable status information about the monitored system can be read via DLT as well. The information under `/proc` of the target system is at your hands easily. |
 | [DLT Core Dump Handler](/doc/dlt_cdh.md) | This tool collects and extracts debug information then utilize [DLT Filetransfer](doc/dlt_filetransfer.md) to transfer the information to client. |
 
-### Configure, Control and Interface
+### Configure, Control
 
 There is still lots to discover about DLT. If you turn on the generation of
 manpages with the cmake option ```-DWITH_MAN=ON``` you can learn how to
