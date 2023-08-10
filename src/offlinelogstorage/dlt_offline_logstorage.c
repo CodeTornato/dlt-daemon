@@ -182,22 +182,23 @@ DLT_STATIC int dlt_logstorage_list_add_config(DltLogStorageFilterConfig *data,
  * @param list List of the filter configurations
  * @return 0 on success, -1 on error
  */
+// Function to add a new item to a linked list of log storage filters
 DLT_STATIC int dlt_logstorage_list_add(char *keys,
                                        int num_keys,
                                        DltLogStorageFilterConfig *data,
                                        DltLogStorageFilterList **list)
 {
     DltLogStorageFilterList *tmp = NULL;
-
+    // Iterate through the linked list to find the tail
     while (*(list) != NULL) {
         list = &(*list)->next;
     }
-
+    // Allocate memory for the new filter item
     tmp = calloc(1, sizeof(DltLogStorageFilterList));
 
     if (tmp == NULL)
         return -1;
-
+    // Allocate memory for the key list within the filter item
     tmp->key_list = (char *)calloc(
                 (num_keys * DLT_OFFLINE_LOGSTORAGE_MAX_KEY_LEN), sizeof(char));
     if (tmp->key_list == NULL)
@@ -206,12 +207,13 @@ DLT_STATIC int dlt_logstorage_list_add(char *keys,
         tmp = NULL;
         return -1;
     }
-
+    // Copy keys into the newly created filter item
     memcpy(tmp->key_list, keys, num_keys * DLT_OFFLINE_LOGSTORAGE_MAX_KEY_LEN);
     tmp->num_keys = num_keys;
     tmp->next = NULL;
+    // Allocate memory for the data configuration within the filter i
     tmp->data = calloc(1, sizeof(DltLogStorageFilterConfig));
-
+    
     if (tmp->data == NULL) {
         free(tmp->key_list);
         tmp->key_list = NULL;
@@ -219,7 +221,7 @@ DLT_STATIC int dlt_logstorage_list_add(char *keys,
         tmp = NULL;
         return -1;
     }
-
+    // Add configuration data to the newly created filter item
     if (dlt_logstorage_list_add_config(data, &(tmp->data)) != 0) {
         free(tmp->key_list);
         tmp->key_list = NULL;
